@@ -22,31 +22,33 @@ function applyPreferences() {
       document.getElementById('greeting').textContent = `Hello, ${savedName}!`;
     }
   
-    // 
+    // This will display what background color the user set
     if (savedBackgroundColor) {
       document.body.style.backgroundColor = savedBackgroundColor;
     }
+
+    // This will display what text color the user set
     if (savedForegroundColor) {
       document.body.style.color = savedForegroundColor;
     }
   }
   
-  // Event listener for form submission
+  // This event listener is checking to see when the submit button is pressed
   document.getElementById('preferences-form').addEventListener('submit', function (event) {
-    // Prevent the default form submission action
+    // This prevents the submission form to be the default
     event.preventDefault();
   
-    // Get user input values
+    // This line lets the user add their name and customize the page's colors
     let name = document.getElementById('name').value;
     let backgroundColor = document.getElementById('background-color').value;
     let foregroundColor = document.getElementById('foreground-color').value;
   
-    // Save preferences in localStorage
+    // This saves the preferences in localStorage
     localStorage.setItem('name', name);
     localStorage.setItem('background-color', backgroundColor);
     localStorage.setItem('foreground-color', foregroundColor);
   
-    // Apply the preferences
+    // This calls to the function to apply the preferences whenever the page is closed and reopened
     applyPreferences();
   
     // This alert will go off once you press submit, letting the user know that the preferences have been saved
